@@ -47,7 +47,7 @@ def sentences(text):
     for para in re.split(r"\n+", text):
         para = re.sub(r"\s+", " ", para).strip()
         para = re.sub(r"\.(?=[A-Z][a-z])", ". ", para)  # "range.The" -> "range. The"
-        for s in re.split(r"(?<=[.;!?])\s+(?=[A-Za-z(\u201c\"])", para):
+        for s in re.split(r"(?<!i\.e\.)(?<!e\.g\.)(?<=[.;!?])\s+(?=[A-Z(\u201c\"])", para):
             s = s.strip(" ;")
             if len(s.split()) < 6 or BOILERPLATE.search(s):
                 continue
