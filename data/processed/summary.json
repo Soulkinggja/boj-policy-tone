@@ -7,11 +7,11 @@
   "latest_rate": 6.5,
   "most_hawkish": {
     "date": "2026-09-28",
-    "tone": 82.02346058824332
+    "tone": 82.02345228694159
   },
   "most_dovish": {
     "date": "2024-12-20",
-    "tone": -52.87941878195852
+    "tone": -52.87950398563962
   },
   "corr_tone_next_change": 0.48,
   "avg_tone_before_raise": 34.6,
