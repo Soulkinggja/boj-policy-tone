@@ -15,7 +15,7 @@ jobs:
   update:
     runs-on: ubuntu-latest
     env:
-      HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      HF_TOKEN: ${{ secrets.ECONTOKEN }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
