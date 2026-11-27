@@ -14,7 +14,8 @@ for name in ("statements.csv", "sentences.csv", "summary.json"):
     shutil.copy(ROOT / "data" / "processed" / name, dest / name)
 
 api = HfApi(token=os.environ["HF_TOKEN"])
-api.create_repo(SPACE_ID, repo_type="space", space_sdk="gradio", exist_ok=True)
+if not api.repo_exists(SPACE_ID, repo_type="space"):
+    api.create_repo(SPACE_ID, repo_type="space", space_sdk="gradio")
 api.upload_folder(folder_path=str(ROOT / "space"), repo_id=SPACE_ID, repo_type="space",
                   commit_message="Update data and app")
 print(f"published https://huggingface.co/spaces/{SPACE_ID}")
