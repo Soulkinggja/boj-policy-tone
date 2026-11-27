@@ -3,6 +3,13 @@ from functools import lru_cache
 from pathlib import Path
 
 import gradio as gr
+
+try:  # ZeroGPU hardware on Hugging Face needs a @spaces.GPU function
+    import spaces
+    gpu = spaces.GPU
+except ImportError:
+    def gpu(fn):
+        return fn
 import pandas as pd
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
@@ -64,6 +71,7 @@ def classifier():
     return pipeline("text-classification", model=MODEL, top_k=None, truncation=True)
 
 
+@gpu
 def classify(text):
     if not text or not text.strip():
         return {}
