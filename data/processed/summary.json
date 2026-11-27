@@ -1,0 +1,21 @@
+{
+  "statements": 48,
+  "sentences": 1082,
+  "first": "2020-02-19",
+  "last": "2026-11-18",
+  "latest_tone": 57.0,
+  "latest_rate": 6.5,
+  "most_hawkish": {
+    "date": "2026-09-28",
+    "tone": 82.02346058824332
+  },
+  "most_dovish": {
+    "date": "2024-12-20",
+    "tone": -52.87941878195852
+  },
+  "corr_tone_next_change": 0.48,
+  "avg_tone_before_raise": 34.6,
+  "avg_tone_before_hold": 2.0,
+  "avg_tone_before_cut": -22.9,
+  "model": "mrince/CBRT-RoBERTa-HawkishDovish-Classifier"
+}
