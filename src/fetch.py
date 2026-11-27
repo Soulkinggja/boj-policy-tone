@@ -61,7 +61,16 @@ def text_of(post_id):
 
 
 def main():
-    posts = list_posts()
+    try:
+        posts = list_posts()
+    except Exception as e:  # the BOJ site sometimes blocks cloud servers
+        print(f"BOJ site not reachable from this machine ({e}); keeping the saved statements")
+        return
+    if OUT.exists():
+        saved = {json.loads(l)["id"] for l in OUT.open()}
+        if {p["id"] for p in posts} <= saved:
+            print("no new statements")
+            return
     OUT.parent.mkdir(parents=True, exist_ok=True)
     with OUT.open("w") as f:
         for p in posts:
